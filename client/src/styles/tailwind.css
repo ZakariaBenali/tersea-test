@@ -1,0 +1,12 @@
+:root {
+	--color-primary-500: 34 151 244;
+	--color-primary-800: 8 77 132;
+	--color-gray: 128 143 179;
+	--color-bg: 245 248 250;
+	--color-error: 238 39 55;
+	--color-success: 51 214 51;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
