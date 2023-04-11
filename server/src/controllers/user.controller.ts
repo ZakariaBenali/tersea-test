@@ -132,6 +132,7 @@ export default class UserController extends BaseController {
 			const users = await this.service.getAll('ASC');
 			if (users.length === 0) {
 				const user = await this.service.createUser('admin', 'admin@email.com', 'password123', true);
+				delete user.password;
 				JSONResponse.success(res, user);
 			} else {
 				JSONResponse.success(res, 'User already generated');
