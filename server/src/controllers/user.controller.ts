@@ -125,4 +125,19 @@ export default class UserController extends BaseController {
 			next(new HttpException(500));
 		}
 	}
+
+	@Route('get', '/init')
+	public async createTestAdmin(_: Request, res: Response, next: NextFunction) {
+		try {
+			const users = await this.service.getAll('ASC');
+			if (users.length === 0) {
+				const user = await this.service.createUser('admin', 'admin@email.com', 'password123', true);
+				JSONResponse.success(res, user);
+			} else {
+				JSONResponse.success(res, 'User already generated');
+			}
+		} catch {
+			next(new HttpException(500));
+		}
+	}
 }
